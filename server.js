@@ -82,6 +82,10 @@ const app = express();
 
 app.use('/api', apiRouter);
 
+app.use((req, res) => {
+    res.status(404).json({error: 'Endpoint not found'});
+});
+
 app.listen(3000, () => {
     console.log('Server is running on port 3000');
 });
